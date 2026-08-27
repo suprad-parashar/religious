@@ -1,0 +1,16 @@
+# dependencies
+/node_modules
+/.next
+/out
+
+# misc
+.DS_Store
+*.pem
+.context
+.conductor/settings.local.toml
+
+# debug
+npm-debug.log*
+
+# typescript
+next-env.d.ts

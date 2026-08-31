@@ -52,10 +52,17 @@ Do not switch to sans-serif or modern UI fonts unless the user explicitly reques
 
 ## Components
 
+### Setup card
+
+- White card below the intro, same border and radius as the intro
+- Uppercase brown heading
+- Labeled lists: "What you need", "How to prepare", optional "Notes"
+
 ### Step card
 
 - Dark brown header bar with step title
-- White body with "What to do" + audio + "Tell me more" button
+- White body with "What to do" + subtexts (text and/or audio)
+- "Tell me more" only when the step has `information`
 - No inline explanations or commentary in the body
 
 ### Buttons
@@ -67,13 +74,15 @@ Do not switch to sans-serif or modern UI fonts unless the user explicitly reques
 ### Audio blocks
 
 - Nested cream box inside the card
-- Full-width `<audio controls>`
+- Full recording: native `<audio controls>`
+- Step clips (`startTime` / `endTime`): Play/Pause, seek bar, and clock for that segment only
+- Repeating clips: one combined seek bar and clock; the counter tracks the current repeat and jumps to that timestamp
 
 ### Detail panel
 
 - Slightly darker cream background than page
 - Left border separator
-- Sections: Overview (optional), Meaning, Symbolism, Why, Background, Other notes
+- Markdown body from the step's `information` file
 
 ## CSS conventions
 

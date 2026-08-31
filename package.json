@@ -8,9 +8,13 @@
     "start": "next start"
   },
   "dependencies": {
+    "@ishubhamx/panchangam-js": "^3.0.0",
+    "astronomy-engine": "^2.1.19",
+    "marked": "^18.0.11",
     "next": "^15.5.0",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "tz-lookup": "^6.1.25"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",

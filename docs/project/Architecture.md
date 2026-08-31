@@ -20,12 +20,22 @@ src/
 │   ├── page.tsx         # Thin server entry — passes content to client
 │   └── globals.css      # All styles
 ├── components/
-│   ├── UpakarmaGuide.tsx    # Main client shell; owns panel state
+│   ├── UpakarmaGuide.tsx    # Main client shell; owns panel and user-config state
+│   ├── UserConfigCard.tsx   # Country, US location, and japa count
 │   ├── StepCard.tsx         # Single step (instructions + audio + button)
 │   ├── TellMeMorePanel.tsx  # Page-level right-side detail panel
 │   └── AudioPlayer.tsx      # Audio with optional segment playback
+├── lib/
+│   ├── applyTemplate.ts     # {{placeholder}} replacement
+│   ├── userConfig.ts        # Country / location / date / japa (localStorage)
+│   ├── locationData.ts      # US / India state and city coordinates
+│   ├── geolocation.ts       # Browser location + reverse geocode
+│   ├── panchanga.ts         # Shaka / amanta panchanga (@ishubhamx/panchangam-js)
+│   └── applyUserConfig.ts   # Applies those choices to resolved content
 ├── content/
-│   └── upakarma.ts      # ★ Single file to edit for all ritual content
+│   ├── upakarma.ts      # ★ Ritual content (steps, audio, template values)
+│   ├── resolveUpakarmaContent.ts  # Loads markdown and fills {{placeholders}}
+│   └── texts/           # Markdown / templated recitation files
 └── types/
     └── upakarma.ts      # TypeScript types for content shape
 
@@ -49,7 +59,7 @@ public/
 
 ## Content model
 
-Content is defined in `src/content/upakarma.ts` and typed in `src/types/upakarma.ts`.
+Content is defined in `src/content/upakarma.ts` and typed in `src/types/upakarma.ts`. Page-level fields include the introduction, a setup card (what to gather and how to prepare), the full recording, and the ritual steps.
 
 When adding fields to the content shape:
 
@@ -61,8 +71,8 @@ When adding fields to the content shape:
 ## Audio
 
 - Full recording: `public/audio/Upakarma.mp3`
-- Per-step clips: add files under `public/audio/` and reference via `audio.src`
-- Segment playback from full recording: set `startTime` / `endTime` (seconds) on a step
+- Per-part clips: add files under `public/audio/` and reference via `subtexts[].audio.src`
+- Segment playback from full recording: set `startTime` / `endTime` (seconds) on a subtext audio entry
 
 ## Build and deploy
 

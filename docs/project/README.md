@@ -17,6 +17,7 @@ For generic agent behavior (minimal diffs, testing, clarification), see `../` an
 ## Quick reference
 
 - **Primary content file:** `src/content/upakarma.ts` — edit this to add steps and text
+- **Markdown recitations:** `src/content/texts/` — intro, setup, and step texts referenced from `upakarma.ts`
 - **Styles:** `src/app/globals.css` — keep the warm serif theme consistent
 - **Run locally:** `npm run dev`
 - **Build static site:** `npm run build` → output in `out/`

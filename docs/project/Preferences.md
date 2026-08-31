@@ -7,7 +7,8 @@ Standing decisions from the project owner. Follow these unless explicitly told o
 ### Do
 
 - Keep the **main view focused on procedure** — instructions and audio only
-- Put all explanations, meaning, and commentary in the **page-level side panel** (via "Tell me more about this")
+- Put all explanations and commentary in the **page-level side panel** via optional step `information` (markdown)
+- Hide **"Tell me more"** when a step has no `information`
 - Keep the **full procedure visible and scrollable** on the left when the panel is open
 - Let users follow along with the ritual while optionally reading context on the right
 - Use **Escape** or the close button to dismiss the panel
@@ -25,7 +26,8 @@ Standing decisions from the project owner. Follow these unless explicitly told o
 
 ### Do
 
-- Keep `src/content/upakarma.ts` as the single editable content file
+- Keep `src/content/upakarma.ts` as the single editable content file for steps, audio, and template values
+- Put intro, setup, and long recitation markdown in `src/content/texts/` and reference it from `upakarma.ts`
 - Use a single client boundary (`UpakarmaGuide.tsx`) for page interactivity
 - Use plain CSS in `globals.css` matching the established theme
 - Run `npm run build` after structural changes
@@ -61,12 +63,12 @@ Standing decisions from the project owner. Follow these unless explicitly told o
 - Use placeholders like `[Describe what to do...]` when scaffolding new steps
 - Let the user provide the actual Sanskrit ritual text and theological content
 - Support per-step audio clips or timestamps from the full recording
+- Use **Shaka, amanta** panchanga for calendar placeholders (`{{samvatsara}}`, `{{vasara}}`, and the rest), not Vikram / purnimanta
 
 ### Don't
 
 - Do not invent ritual procedures or mantras — use placeholders
 - Do not guess theological meaning or symbolism
-- Do not remove the `tellMeMore` section structure — the user will populate it
 
 ## When the user adds a new preference
 

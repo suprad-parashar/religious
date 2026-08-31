@@ -15,7 +15,7 @@ The site is designed to be used **during the puja**: the main view stays focused
 
 1. User sees the full procedure as a scrollable list of steps
 2. Each step shows **what to do** and **mantra audio** — nothing else by default
-3. User can click **"Tell me more about this"** to open a **page-level side panel** with meaning, symbolism, background, etc.
+3. If a step has `information`, the user can click **"Tell me more about this"** to open a **page-level side panel** with that markdown
 4. The left side (full procedure) remains visible and scrollable while the panel is open
 
 ## Scope

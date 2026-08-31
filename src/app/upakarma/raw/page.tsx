@@ -16,7 +16,7 @@ export default function UpakarmaRawPage() {
       <header>
         <h1>{fullRecording.label}</h1>
         <p className="subtitle">
-          <Link href="/">Back to the guide</Link>
+          <Link href="/upakarma">Back to the guide</Link>
         </p>
       </header>
 

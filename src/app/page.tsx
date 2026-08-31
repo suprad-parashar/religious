@@ -1,16 +1,20 @@
-import { HomeClient } from "@/components/HomeClient";
-import { ritualContentByType } from "@/content/ritualContent";
-import { resolveUpakarmaContent } from "@/content/resolveUpakarmaContent";
-import type { RitualType } from "@/lib/userConfig";
-import type { ResolvedUpakarmaContent } from "@/types/upakarma";
+"use client";
 
-const resolvedContentByRitualType = Object.fromEntries(
-  (Object.keys(ritualContentByType) as RitualType[]).map((ritualType) => [
-    ritualType,
-    resolveUpakarmaContent(ritualContentByType[ritualType]),
-  ]),
-) as Record<RitualType, ResolvedUpakarmaContent>;
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
-export default function Home() {
-  return <HomeClient contentByRitualType={resolvedContentByRitualType} />;
+export default function RootPage() {
+  const router = useRouter();
+
+  useEffect(() => {
+    router.replace("/upakarma");
+  }, [router]);
+
+  return (
+    <main className="page">
+      <p>
+        <a href="/upakarma">Continue to the Yajur Veda Upakarma guide</a>
+      </p>
+    </main>
+  );
 }

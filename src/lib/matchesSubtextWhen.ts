@@ -1,7 +1,7 @@
 /** Match when a context field equals a value or is in a list. Multiple fields are ANDed. */
 export type SubtextWhenValue = string | number | boolean;
 
-export type SubtextWhen = Record<string, SubtextWhenValue | SubtextWhenValue[]>;
+export type SubtextWhen = Partial<Record<string, SubtextWhenValue | SubtextWhenValue[]>>;
 
 export type WhenContext = Record<string, string | number | boolean | undefined>;
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { publicAssetUrl } from "@/lib/publicAssetUrl";
 
 type AudioPlayerProps = {
   src: string;
@@ -67,6 +68,7 @@ function partsFromDisplayTime(displayTime: number, clipLength: number, totalPlay
 }
 
 export function AudioPlayer({ src, label, startTime, endTime, repeat }: AudioPlayerProps) {
+  const resolvedSrc = publicAssetUrl(src);
   const unbounded = repeat === "yatha";
   const totalPlays = unbounded ? 1 : normalizeRepeat(repeat);
   const isClipped = hasBoundedStart(startTime) || hasBoundedEnd(endTime);
@@ -75,7 +77,7 @@ export function AudioPlayer({ src, label, startTime, endTime, repeat }: AudioPla
     return (
       <div className="audio-block">
         <p className="label">{label}</p>
-        <audio controls preload="metadata" src={src}>
+        <audio controls preload="metadata" src={resolvedSrc}>
           Your browser does not support audio playback.
         </audio>
       </div>
@@ -84,7 +86,7 @@ export function AudioPlayer({ src, label, startTime, endTime, repeat }: AudioPla
 
   return (
     <ClippedAudioPlayer
-      src={src}
+      src={resolvedSrc}
       label={label}
       startTime={startTime}
       endTime={endTime}
